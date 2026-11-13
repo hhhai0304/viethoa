@@ -21,7 +21,23 @@
     "Gỡ cài bằng Steam → Verify integrity, không cần công cụ"
   ],
   "naming_policy": "Tên Temtem, tên chiêu thức, tên vật phẩm và địa danh giữ nguyên tiếng Anh — để bạn tra wiki, đọc hướng dẫn build hay nói chuyện với cộng đồng quốc tế mà không bị lệch thuật ngữ.",
-  "screens": [],
+  "screens": [
+    {
+      "src": "../static/temtem/title.jpg",
+      "alt": "Màn hình tiêu đề Temtem với dòng chữ Việt hóa bởi viethoa.haiho.net",
+      "caption": "Màn hình tiêu đề — chữ ký Việt hóa"
+    },
+    {
+      "src": "../static/temtem/main_menu.jpg",
+      "alt": "Menu chính Temtem tiếng Việt: Tiếp tục, Cài đặt, Nhập mã, Thoát",
+      "caption": "Menu chính"
+    },
+    {
+      "src": "../static/temtem/loading.jpg",
+      "alt": "Màn hình tải Temtem hiển thị dòng Việt hóa bởi viethoa.haiho.net",
+      "caption": "Màn hình tải — chữ ký Việt hóa"
+    }
+  ],
   "install": {
     "windows": [
       "Tải <code>Temtem_Windows.zip</code> ở mục Tải về và giải nén ra một thư mục bất kỳ.",
