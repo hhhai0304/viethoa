@@ -18,7 +18,8 @@
     "Toàn bộ hội thoại, nhiệm vụ, UI và mô tả chiêu thức đã dịch",
     "Font gốc của game hỗ trợ sẵn tiếng Việt — không cần cài font ngoài",
     "Không cần BepInEx / DLL / launch option, chạy được trên Steam Deck (Proton)",
-    "Gỡ cài bằng Steam → Verify integrity, không cần công cụ"
+    "Gỡ cài bằng Steam → Verify integrity, không cần công cụ",
+    "Bản dịch nằm ở khe ngôn ngữ English của game — sau khi cài, chọn English là ra tiếng Việt"
   ],
   "naming_policy": "Tên Temtem, tên chiêu thức, tên vật phẩm và địa danh giữ nguyên tiếng Anh — để bạn tra wiki, đọc hướng dẫn build hay nói chuyện với cộng đồng quốc tế mà không bị lệch thuật ngữ.",
   "screens": [
@@ -44,19 +45,22 @@
       "Đóng game và Steam nếu đang mở.",
       "Double-click <code>install.bat</code> — nó tự tìm thư mục cài game, kiểm tra đúng phiên bản, sao lưu file gốc rồi áp bản dịch.",
       "Nếu Windows hỏi <em>Windows protected your PC</em>, bấm <em>More info</em> → <em>Run anyway</em> (script không ký số).",
-      "Mở game. Nếu menu chính và màn hình Cài đặt hiện dòng <em>Việt hóa bởi viethoa.haiho.net</em> là đã cài xong."
+      "Mở game. Nếu menu chính và màn hình Cài đặt hiện dòng <em>Việt hóa bởi viethoa.haiho.net</em> là đã cài xong.",
+      "Vào game, mở <em>Cài đặt → Ngôn ngữ</em> và chọn <strong>English</strong> — bản Việt hóa thay nội dung của khe tiếng Anh."
     ],
     "deck": [
       "Chuyển sang Desktop Mode (Power → Switch to Desktop).",
       "Tải <code>Temtem_Linux.tar.gz</code>, giải nén ra <code>~/Downloads</code>.",
       "Mở Konsole trong thư mục vừa giải nén và chạy <code>bash install.sh</code>.",
       "Script tự dò thư viện Steam, kiểm tra phiên bản, sao lưu rồi áp bản dịch — không cần sudo.",
-      "Quay lại Game Mode và mở Temtem."
+      "Quay lại Game Mode và mở Temtem.",
+      "Quay lại Game Mode, mở Temtem và chọn ngôn ngữ <strong>English</strong> trong Cài đặt."
     ],
     "linux": [
       "Tải <code>Temtem_Linux.tar.gz</code> và giải nén.",
       "Chạy <code>bash install.sh</code> — script dò <code>~/.local/share/Steam</code>, <code>~/.steam/steam</code> và thư viện phụ.",
-      "Nếu game chạy qua Proton thì không cần thêm gì; nếu dùng bản native thì đường dẫn vẫn được dò tự động."
+      "Nếu game chạy qua Proton thì không cần thêm gì; nếu dùng bản native thì đường dẫn vẫn được dò tự động.",
+      "Mở game và chọn ngôn ngữ <strong>English</strong> — bản dịch nằm ở khe đó."
     ]
   },
   "uninstall": [
