@@ -1,0 +1,84 @@
+{
+  "slug": "temtem",
+  "name": "Temtem",
+  "platform": "PC",
+  "status": "Hoàn thành",
+  "version": "v1.0.0",
+  "updated": "2026-11-13",
+  "game_build": "1.8.3",
+  "appid": 745920,
+  "steam_url": "https://store.steampowered.com/app/745920/Temtem/",
+  "release_url": "https://github.com/hhhai0304/viethoa/releases/latest",
+  "summary": "Bản Việt hóa tiếng Việt cho Temtem trên PC — chạy tốt trên Windows và Steam Deck (Proton). Toàn bộ hội thoại, UI, mô tả chiêu thức và vật phẩm đã được dịch; tên Temtem, tên chiêu, tên vật phẩm và địa danh giữ nguyên tiếng Anh để khớp với wiki và cộng đồng.",
+  "intro": [
+    "Temtem là game bắt và nuôi thú dạng MMO của Crema, ra mắt trên Steam năm 2022. Game chưa có tiếng Việt chính thức — đây là bản dịch độc lập, làm từ đầu, không dựa trên bản dịch nào khác.",
+    "Khác với phần lớn bản Việt hóa PC, Temtem không cần BepInEx, không cần DLL, không cần thêm launch option. Bản dịch nằm gọn trong hai file dữ liệu của game, nên cài xong là chạy — kể cả trên Steam Deck."
+  ],
+  "highlights": [
+    "Toàn bộ hội thoại, nhiệm vụ, UI và mô tả chiêu thức đã dịch",
+    "Font gốc của game hỗ trợ sẵn tiếng Việt — không cần cài font ngoài",
+    "Không cần BepInEx / DLL / launch option, chạy được trên Steam Deck (Proton)",
+    "Gỡ cài bằng Steam → Verify integrity, không cần công cụ"
+  ],
+  "naming_policy": "Tên Temtem, tên chiêu thức, tên vật phẩm và địa danh giữ nguyên tiếng Anh — để bạn tra wiki, đọc hướng dẫn build hay nói chuyện với cộng đồng quốc tế mà không bị lệch thuật ngữ.",
+  "screens": [],
+  "install": {
+    "windows": [
+      "Tải <code>Temtem_Windows.zip</code> ở mục Tải về và giải nén ra một thư mục bất kỳ.",
+      "Đóng game và Steam nếu đang mở.",
+      "Double-click <code>install.bat</code> — nó tự tìm thư mục cài game, kiểm tra đúng phiên bản, sao lưu file gốc rồi áp bản dịch.",
+      "Nếu Windows hỏi <em>Windows protected your PC</em>, bấm <em>More info</em> → <em>Run anyway</em> (script không ký số).",
+      "Mở game. Nếu menu chính và màn hình Cài đặt hiện dòng <em>Việt hóa bởi viethoa.haiho.net</em> là đã cài xong."
+    ],
+    "deck": [
+      "Chuyển sang Desktop Mode (Power → Switch to Desktop).",
+      "Tải <code>Temtem_Linux.tar.gz</code>, giải nén ra <code>~/Downloads</code>.",
+      "Mở Konsole trong thư mục vừa giải nén và chạy <code>bash install.sh</code>.",
+      "Script tự dò thư viện Steam, kiểm tra phiên bản, sao lưu rồi áp bản dịch — không cần sudo.",
+      "Quay lại Game Mode và mở Temtem."
+    ],
+    "linux": [
+      "Tải <code>Temtem_Linux.tar.gz</code> và giải nén.",
+      "Chạy <code>bash install.sh</code> — script dò <code>~/.local/share/Steam</code>, <code>~/.steam/steam</code> và thư viện phụ.",
+      "Nếu game chạy qua Proton thì không cần thêm gì; nếu dùng bản native thì đường dẫn vẫn được dò tự động."
+    ]
+  },
+  "uninstall": [
+    "Steam → chuột phải <strong>Temtem</strong> → <em>Thuộc tính</em> → <em>Tệp đã cài đặt</em> → <strong>Xác minh tính toàn vẹn của tệp trò chơi</strong>.",
+    "Steam tự tải lại hai file gốc, game trở về tiếng Anh. Không cần công cụ, không cần xóa tay."
+  ],
+  "faq": [
+    {
+      "q": "Cài bản Việt hóa có bị ban không?",
+      "a": "Bản dịch chỉ thay dữ liệu văn bản phía client (hai file .assets), không đụng vào logic game, không can thiệp vào kết nối hay giao dịch. Temtem không dùng anti-cheat kernel. Tuy vậy đây là game online và mọi thay đổi file đều là tự chịu rủi ro — nếu bạn lo, hãy thử bằng một tài khoản phụ trước."
+    },
+    {
+      "q": "Game cập nhật thì bản Việt hóa còn dùng được không?",
+      "a": "Nếu bản cập nhật có sửa hai file dữ liệu, Steam sẽ ghi đè và bản dịch mất — khi đó installer sẽ báo đúng phiên bản và dừng lại thay vì làm hỏng game. Bạn xác minh lại để chơi bản gốc, mình sẽ phát hành bản Việt hóa khớp phiên bản mới."
+    },
+    {
+      "q": "Có cần cài BepInEx hay plugin gì không?",
+      "a": "Không. Temtem dùng I2 Localization với toàn bộ chuỗi nằm trong file assets, nên chỉ cần thay file — không DLL, không launch option, không ảnh hưởng tới Steam Deck."
+    },
+    {
+      "q": "Vì sao tên Temtem, tên chiêu và vật phẩm vẫn là tiếng Anh?",
+      "a": "Đó là chủ ý. Tên riêng giữ nguyên để khớp với wiki, video hướng dẫn và cộng đồng quốc tế; phần mô tả, hội thoại và UI thì dịch toàn bộ."
+    },
+    {
+      "q": "Bản Việt hóa có miễn phí không?",
+      "a": "Miễn phí và sẽ luôn miễn phí. Nếu bạn muốn ủng hộ, có nút mời mình một ly cà phê — nhưng chơi hết game và báo lỗi giúp đã là quý rồi."
+    }
+  ],
+  "changelog": [
+    {
+      "version": "v1.0.0",
+      "date": "2026-11-13",
+      "items": [
+        "Bản phát hành đầu tiên: toàn bộ hội thoại, UI, nhiệm vụ, mô tả chiêu thức và vật phẩm",
+        "Thêm chữ ký Việt hóa ở màn hình chính và Cài đặt",
+        "Tên riêng (Temtem, chiêu thức, vật phẩm, địa danh) giữ nguyên tiếng Anh",
+        "Installer cho Windows và Linux/Steam Deck"
+      ]
+    }
+  ]
+}

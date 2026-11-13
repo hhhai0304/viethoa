@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://hhhai0304.github.io/viethoa/sitemap.xml
