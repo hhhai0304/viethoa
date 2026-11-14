@@ -4,8 +4,8 @@
   "platform": "PC",
   "status": "Hoàn thành",
   "version": "v1.0.0",
-  "updated": "2026-11-13",
-  "game_build": "1.8.3",
+  "updated": "2026-11-14",
+  "game_build": "1.8.3 (buildid 22676680)",
   "appid": 745920,
   "steam_url": "https://store.steampowered.com/app/745920/Temtem/",
   "release_url": "https://github.com/hhhai0304/viethoa/releases/latest",
@@ -25,42 +25,40 @@
   "screens": [
     {
       "src": "../static/temtem/title.jpg",
-      "alt": "Màn hình tiêu đề Temtem với dòng chữ Việt hóa bởi viethoa.haiho.net",
+      "alt": "Màn hình tiêu đề Temtem với dòng Nhấn phím bất kỳ và chữ ký Việt hóa bởi viethoa.haiho.net",
       "caption": "Màn hình tiêu đề — chữ ký Việt hóa"
     },
     {
-      "src": "../static/temtem/main_menu.jpg",
-      "alt": "Menu chính Temtem tiếng Việt: Tiếp tục, Cài đặt, Nhập mã, Thoát",
-      "caption": "Menu chính"
+      "src": "../static/temtem/settings.jpg",
+      "alt": "Menu Cài đặt Temtem tiếng Việt: Trò chơi, Điều khiển, Đồ họa, Âm thanh",
+      "caption": "Menu Cài đặt"
     },
     {
-      "src": "../static/temtem/loading.jpg",
-      "alt": "Màn hình tải Temtem hiển thị dòng Việt hóa bởi viethoa.haiho.net",
-      "caption": "Màn hình tải — chữ ký Việt hóa"
+      "src": "../static/temtem/ingame.jpg",
+      "alt": "Màn hình trong game Temtem tiếng Việt",
+      "caption": "Trong game"
     }
   ],
   "install": {
     "windows": [
-      "Tải <code>Temtem_Windows.zip</code> ở mục Tải về và giải nén ra một thư mục bất kỳ.",
-      "Đóng game và Steam nếu đang mở.",
-      "Double-click <code>install.bat</code> — nó tự tìm thư mục cài game, kiểm tra đúng phiên bản, sao lưu file gốc rồi áp bản dịch.",
+      "Tải <code>Temtem_Windows.zip</code> (~1.8 MB) và giải nén ra một thư mục bất kỳ.",
+      "Tắt hẳn Temtem và Steam nếu đang mở.",
+      "Nhấp đôi <code>install.bat</code> — script tự tìm thư mục cài game qua Steam, kiểm tra đúng phiên bản, sao lưu file gốc rồi vá.",
       "Nếu Windows hỏi <em>Windows protected your PC</em>, bấm <em>More info</em> → <em>Run anyway</em> (script không ký số).",
-      "Mở game. Nếu menu chính và màn hình Cài đặt hiện dòng <em>Việt hóa bởi viethoa.haiho.net</em> là đã cài xong.",
-      "Vào game, mở <em>Cài đặt → Ngôn ngữ</em> và chọn <strong>English</strong> — bản Việt hóa thay nội dung của khe tiếng Anh."
+      "Trong game mở <em>Cài đặt → Ngôn ngữ</em> và chọn <strong>Tiếng Anh</strong> — bản Việt hóa thay nội dung của khe ngôn ngữ đó, nên tên hiển thị vẫn là ”Tiếng Anh” nhưng chữ trong game là tiếng Việt."
     ],
     "deck": [
       "Chuyển sang Desktop Mode (Power → Switch to Desktop).",
-      "Tải <code>Temtem_Linux.tar.gz</code>, giải nén ra <code>~/Downloads</code>.",
+      "Tải <code>Temtem_Linux.tar.gz</code> (~1.8 MB), giải nén ra <code>~/Downloads</code>.",
       "Mở Konsole trong thư mục vừa giải nén và chạy <code>bash install.sh</code>.",
-      "Script tự dò thư viện Steam, kiểm tra phiên bản, sao lưu rồi áp bản dịch — không cần sudo.",
-      "Quay lại Game Mode và mở Temtem.",
-      "Quay lại Game Mode, mở Temtem và chọn ngôn ngữ <strong>English</strong> trong Cài đặt."
+      "Script tự dò thư viện Steam, kiểm tra phiên bản, sao lưu rồi vá — không cần sudo.",
+      "Về Game Mode, mở Temtem, vào <em>Cài đặt → Ngôn ngữ</em> và chọn <strong>Tiếng Anh</strong>."
     ],
     "linux": [
       "Tải <code>Temtem_Linux.tar.gz</code> và giải nén.",
-      "Chạy <code>bash install.sh</code> — script dò <code>~/.local/share/Steam</code>, <code>~/.steam/steam</code> và thư viện phụ.",
-      "Nếu game chạy qua Proton thì không cần thêm gì; nếu dùng bản native thì đường dẫn vẫn được dò tự động.",
-      "Mở game và chọn ngôn ngữ <strong>English</strong> — bản dịch nằm ở khe đó."
+      "Chạy <code>bash install.sh</code> — script dò <code>~/.local/share/Steam</code>, <code>~/.steam/steam</code>, thư viện phụ và cả bản Steam Flatpak.",
+      "Game chạy Proton hay native đều được; đường dẫn game được dò tự động.",
+      "Mở game và chọn ngôn ngữ <strong>Tiếng Anh</strong>."
     ]
   },
   "uninstall": [
@@ -87,6 +85,10 @@
     {
       "q": "Bản Việt hóa có miễn phí không?",
       "a": "Miễn phí và sẽ luôn miễn phí. Nếu bạn muốn ủng hộ, có nút mời mình một ly cà phê — nhưng chơi hết game và báo lỗi giúp đã là quý rồi."
+    },
+    {
+      "q": "Cài xong mà game vẫn tiếng Anh?",
+      "a": "Vào Cài đặt → Ngôn ngữ và chọn “Tiếng Anh” — bản Việt hóa nằm ở đúng khe đó, nên tên hiển thị vẫn là Tiếng Anh nhưng nội dung là tiếng Việt. Nếu vẫn tiếng Anh, chạy lại installer: nó sẽ báo file đã vá hay chưa."
     }
   ],
   "changelog": [
