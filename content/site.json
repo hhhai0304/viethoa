@@ -5,11 +5,11 @@
   "author": "Hải",
   "tagline": "Bản Việt hóa của người hâm mộ",
   "donate": {
-    "enabled": false,
-    "bank": "",
-    "account": "",
-    "holder": "",
-    "bank_id": "",
-    "note_template": "Moi cafe {game}"
+    "enabled": true,
+    "bank": "Techcombank",
+    "account": "5678567820",
+    "holder": "HO HOANG HAI",
+    "bank_id": "TCB",
+    "note_template": "Viet Hoa {game}"
   }
 }

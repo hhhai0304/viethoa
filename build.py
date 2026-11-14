@@ -119,9 +119,10 @@ def donate_dialog(site: dict, game_name: str) -> str:
     d = site.get("donate") or {}
     if not d.get("enabled") or not d.get("account"):
         return ""
-    note = (d.get("note_template") or "Moi cafe {game}").format(game=game_name)
+    note = (d.get("note_template") or "Viet Hoa {game}").format(game=game_name)
+    from urllib.parse import quote_plus
     qr = (f"https://img.vietqr.io/image/{d['bank_id']}-{d['account']}-compact2.png"
-          f"?amount=0&addInfo={note.replace(' ', '%20')}&accountName={d['holder'].replace(' ', '%20')}")
+          f"?addInfo={quote_plus(note)}&accountName={quote_plus(d['holder'])}")
     return f"""
 <dialog id="moi-cafe" class="cafe" aria-labelledby="moi-cafe-h">
   <div class="inner">
