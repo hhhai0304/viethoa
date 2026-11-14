@@ -56,14 +56,14 @@ def render_tabs(game: dict) -> str:
 
 
 def render_downloads(game: dict) -> str:
-    rel = game.get("release_url", "")
+    rel = game.get("release_url", "").replace("/releases/latest", "/releases/latest/download")
     cards = []
     for os_name, fname, hint in (
         ("Windows", "Temtem_Windows.zip", "install.bat — tự dò thư mục Steam"),
         ("Steam Deck / Linux", "Temtem_Linux.tar.gz", "bash install.sh — không cần sudo"),
     ):
         cards.append(
-            f'<a class="card" href="{escape(rel)}" rel="noopener">'
+            f'<a class="card" href="{escape(rel)}/{escape(fname)}" rel="noopener">'
             f'<div class="os">{escape(os_name)}</div>'
             f'<div class="file">{escape(fname)}</div>'
             f'<div class="hint">{escape(hint)}</div></a>'
