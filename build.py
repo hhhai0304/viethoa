@@ -163,6 +163,7 @@ def shell(site: dict, *, title: str, description: str, path: str, body: str,
 <meta property="og:url" content="{escape(url)}">
 <meta property="og:image" content="{escape(og_image)}">
 <meta name="twitter:card" content="summary_large_image">
+{('<meta name="google-site-verification" content="' + site['google_verification'] + '">') if site.get('google_verification') else ''}
 {FONTS}
 <link rel="stylesheet" href="{rel}static/style.css">
 {extra_head}
