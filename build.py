@@ -332,7 +332,8 @@ def main() -> None:
     sitemap = ['<?xml version="1.0" encoding="UTF-8"?>',
                '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for g, u in zip([None] + games, urls):
-        last = g["updated"] if g else max(x["updated"] for x in games)
+        last = (g.get("page_updated") or g["updated"]) if g \
+            else max(x.get("page_updated") or x["updated"] for x in games)
         sitemap.append(f"  <url><loc>{escape(u)}</loc><lastmod>{last}</lastmod></url>")
     sitemap.append("</urlset>")
     (ROOT / "sitemap.xml").write_text("\n".join(sitemap) + "\n", encoding="utf-8")
