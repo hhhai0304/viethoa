@@ -163,6 +163,11 @@ def shell(site: dict, *, title: str, description: str, path: str, body: str,
 <meta property="og:url" content="{escape(url)}">
 <meta property="og:image" content="{escape(og_image)}">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0f6f66">
+<meta name="application-name" content="{escape(site['site_name'])}">
+<link rel="icon" href="{rel}favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="{rel}favicon.svg">
+<link rel="apple-touch-icon" href="{rel}apple-touch-icon.png">
 {('<meta name="google-site-verification" content="' + site['google_verification'] + '">') if site.get('google_verification') else ''}
 {FONTS}
 <link rel="stylesheet" href="{rel}static/style.css">
@@ -280,7 +285,7 @@ Vui lòng mua game để ủng hộ nhà phát triển.</p>
 </div></footer>
 {donate}
 """
-    title = f"{game['name']} Việt Hóa — Patch tiếng Việt cho PC & Steam Deck ({game['updated'][:4]})"
+    title = f"{game['name']} Việt Hóa — Patch tiếng Việt cho PC & Steam Deck"
     return shell(site, title=title, description=game["summary"], path=f"{slug}/", body=body,
                  extra_head=f'<script type="application/ld+json">{schema}</script>', depth=1)
 
@@ -306,7 +311,7 @@ def hub_page(site: dict, games: list[dict]) -> str:
 </main>
 <footer><div class="wrap"><p>Việt hóa bởi {escape(site['author'])}. Bản dịch miễn phí; vui lòng mua game để ủng hộ nhà phát triển.</p></div></footer>
 """
-    return shell(site, title=f"Việt hóa game PC — {site['site_name']}",
+    return shell(site, title="Việt Hóa Game PC — Patch tiếng Việt",
                  description="Danh sách bản Việt hóa game PC của " + site["author"]
                  + ": patch tiếng Việt cài tự động cho Windows và Steam Deck.",
                  path="", body=body)
