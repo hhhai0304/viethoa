@@ -165,9 +165,9 @@ def shell(site: dict, *, title: str, description: str, path: str, body: str,
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#0f6f66">
 <meta name="application-name" content="{escape(site['site_name'])}">
-<link rel="icon" href="{rel}favicon.ico" sizes="any">
-<link rel="icon" type="image/svg+xml" href="{rel}favicon.svg">
-<link rel="apple-touch-icon" href="{rel}apple-touch-icon.png">
+<link rel="icon" href="{rel}static/favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="{rel}static/favicon.svg">
+<link rel="apple-touch-icon" href="{rel}static/apple-touch-icon.png">
 {('<meta name="google-site-verification" content="' + site['google_verification'] + '">') if site.get('google_verification') else ''}
 {FONTS}
 <link rel="stylesheet" href="{rel}static/style.css">
