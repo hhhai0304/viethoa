@@ -4,8 +4,8 @@ Bản cập nhật cho Temtem: sửa cách hiển thị chữ ký Việt hóa v�
 
 - **Chữ ký Việt hóa không còn hiện ở cửa sổ sử dụng vật phẩm.** Trước đây chữ ký
   nằm trong nhãn "Quay lại" dùng chung, nên nó xuất hiện ở mọi bảng có nút Back.
-  Giờ chữ ký chỉ còn ở những chỗ phù hợp: màn hình tiêu đề (kèm số phiên bản) và
-  các menu chính.
+  Giờ chữ ký chỉ còn ở hai chỗ đơn dụng: màn hình tiêu đề (kèm số phiên bản) và
+  màn hình cảm ơn ở phần credits cuối game.
 - **Tên vật phẩm trở về tiếng Anh**, khớp với wiki và cộng đồng quốc tế. Phần mô tả
   vật phẩm, hội thoại và giao diện vẫn dịch đầy đủ.
 
