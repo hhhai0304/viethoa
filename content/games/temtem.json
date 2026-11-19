@@ -3,8 +3,8 @@
   "name": "Temtem",
   "platform": "PC",
   "status": "Hoàn thành",
-  "version": "v1.0.0",
-  "updated": "2026-11-14",
+  "version": "v1.0.1",
+  "updated": "2026-11-19",
   "game_build": "1.8.3 (buildid 22676680)",
   "appid": 745920,
   "steam_url": "https://store.steampowered.com/app/745920/Temtem/",
@@ -18,8 +18,9 @@
     "Toàn bộ hội thoại, nhiệm vụ, UI và mô tả chiêu thức đã dịch",
     "Font gốc của game hỗ trợ sẵn tiếng Việt — không cần cài font ngoài",
     "Không cần BepInEx / DLL / launch option, chạy được trên Steam Deck (Proton)",
-    "Gỡ cài bằng Steam → Verify integrity, không cần công cụ",
-    "Bản dịch nằm ở khe ngôn ngữ English của game — sau khi cài, chọn English là ra tiếng Việt"
+    "Tên Temtem, tên chiêu, tên vật phẩm và địa danh giữ nguyên tiếng Anh",
+    "Bản dịch nằm ở khe ngôn ngữ English của game — sau khi cài, chọn English là ra tiếng Việt",
+    "Gỡ cài bằng Steam → Verify integrity, không cần công cụ"
   ],
   "naming_policy": "Tên Temtem, tên chiêu thức, tên vật phẩm và địa danh giữ nguyên tiếng Anh — để bạn tra wiki, đọc hướng dẫn build hay nói chuyện với cộng đồng quốc tế mà không bị lệch thuật ngữ.",
   "screens": [
@@ -41,7 +42,7 @@
   ],
   "install": {
     "windows": [
-      "Tải <code>Temtem_Windows.zip</code> (~1.8 MB) và giải nén ra một thư mục bất kỳ.",
+      "Tải <code>Temtem_Windows.zip</code> (~1.7 MB) và giải nén ra một thư mục bất kỳ.",
       "Tắt hẳn Temtem và Steam nếu đang mở.",
       "Nhấp đôi <code>install.bat</code> — script tự tìm thư mục cài game qua Steam, kiểm tra đúng phiên bản, sao lưu file gốc rồi vá.",
       "Nếu Windows hỏi <em>Windows protected your PC</em>, bấm <em>More info</em> → <em>Run anyway</em> (script không ký số).",
@@ -49,7 +50,7 @@
     ],
     "deck": [
       "Chuyển sang Desktop Mode (Power → Switch to Desktop).",
-      "Tải <code>Temtem_Linux.tar.gz</code> (~1.8 MB), giải nén ra <code>~/Downloads</code>.",
+      "Tải <code>Temtem_Linux.tar.gz</code> (~1.7 MB), giải nén ra <code>~/Downloads</code>.",
       "Mở Konsole trong thư mục vừa giải nén và chạy <code>bash install.sh</code>.",
       "Script tự dò thư viện Steam, kiểm tra phiên bản, sao lưu rồi vá — không cần sudo.",
       "Về Game Mode, mở Temtem, vào <em>Cài đặt → Ngôn ngữ</em> và chọn <strong>Tiếng Anh</strong>."
@@ -93,6 +94,15 @@
   ],
   "changelog": [
     {
+      "version": "v1.0.1",
+      "date": "2026-11-19",
+      "items": [
+        "Chữ ký Việt hóa không còn hiện ở cửa sổ sử dụng vật phẩm (trước đây nó đi theo nhãn Quay lại dùng chung)",
+        "Tên vật phẩm trở về tiếng Anh, khớp wiki và cộng đồng quốc tế; phần mô tả vẫn dịch đầy đủ",
+        "Chữ ký chỉ còn ở màn hình tiêu đề (kèm số phiên bản) và màn hình cảm ơn cuối game"
+      ]
+    },
+    {
       "version": "v1.0.0",
       "date": "2026-11-13",
       "items": [
@@ -103,5 +113,5 @@
       ]
     }
   ],
-  "page_updated": "2026-11-17"
+  "page_updated": "2026-11-19"
 }
