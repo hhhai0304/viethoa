@@ -3,8 +3,8 @@
   "name": "Temtem",
   "platform": "PC",
   "status": "Hoàn thành",
-  "version": "v1.0.1",
-  "updated": "2026-11-19",
+  "version": "v1.0.2",
+  "updated": "2026-11-24",
   "game_build": "1.8.3 (buildid 22676680)",
   "appid": 745920,
   "steam_url": "https://store.steampowered.com/app/745920/Temtem/",
@@ -93,6 +93,15 @@
     }
   ],
   "changelog": [
+    {
+      "version": "v1.0.2",
+      "date": "2026-11-24",
+      "items": [
+        "Nhãn nhóm trong túi đồ trở về tiếng Anh (Quest items, Sweet stuff!, DNA strands, StickTem! Album and Stickers, …); phần mô tả vẫn dịch",
+        "Tên hệ theo cách gọi trên temtem.haiho.net: Tâm linh (trước là Tinh thần), Digital (trước là Kỹ thuật số), Thường, Tinh thể",
+        "Địa danh giữ tiếng Anh để tra walkthrough không lệch tên: Airborne Archipelago, Sea-Queen's Aquarium, Highbelow Sanctum, Juu Tunnel, Tamer's Paradise, The Boathouse Club, Sacred Lake"
+      ]
+    },
     {
       "version": "v1.0.1",
       "date": "2026-11-19",
