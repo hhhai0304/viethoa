@@ -10,7 +10,6 @@ one JSON file under content/games/ — no template edits.
 from __future__ import annotations
 
 import json
-import shutil
 from html import escape
 from pathlib import Path
 
@@ -133,12 +132,20 @@ def donate_dialog(site: dict, game_name: str) -> str:
     <img class="qr" src="{escape(qr)}" alt="Mã QR chuyển khoản" loading="lazy">
     <dl>
       <dt>Ngân hàng</dt><dd>{escape(d['bank'])}</dd>
-      <dt>Số tài khoản</dt><dd><code>{escape(d['account'])}</code><button type="button" class="copy" data-copy="{escape(d['account'])}">Chép</button></dd>
+      <dt>Số tài khoản</dt><dd><code>{escape(d['account'])}</code><button type="button" class="copy" aria-label="Chép số tài khoản" data-copy="{escape(d['account'])}">Chép</button></dd>
       <dt>Chủ tài khoản</dt><dd>{escape(d['holder'])}</dd>
-      <dt>Nội dung</dt><dd>{escape(note)}<button type="button" class="copy" data-copy="{escape(note)}">Chép</button></dd>
+      <dt>Nội dung</dt><dd>{escape(note)}<button type="button" class="copy" aria-label="Chép nội dung chuyển khoản" data-copy="{escape(note)}">Chép</button></dd>
     </dl>
+    <p class="copy-status" role="status"></p>
   </div>
 </dialog>"""
+
+
+def cover(game: dict, prefix: str = "") -> str:
+    src = game.get("cover")
+    if src:
+        return f'<img class="keyart" src="{escape(prefix + src)}" alt="">'
+    return f'<span class="monogram" aria-hidden="true">{escape(game["name"][:1])}</span>'
 
 
 def shell(site: dict, *, title: str, description: str, path: str, body: str,
@@ -163,7 +170,8 @@ def shell(site: dict, *, title: str, description: str, path: str, body: str,
 <meta property="og:url" content="{escape(url)}">
 <meta property="og:image" content="{escape(og_image)}">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#0f6f66">
+<meta name="color-scheme" content="light dark">
+<script>try {{ const t = localStorage.getItem('viethoa-theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; }} catch {{}}</script>
 <meta name="application-name" content="{escape(site['site_name'])}">
 <link rel="icon" href="{rel}static/favicon.ico" sizes="any">
 <link rel="icon" type="image/svg+xml" href="{rel}static/favicon.svg">
@@ -173,7 +181,13 @@ def shell(site: dict, *, title: str, description: str, path: str, body: str,
 <link rel="stylesheet" href="{rel}static/style.css">
 {extra_head}
 </head>
-<body>
+<body id="top">
+<header class="mast"><div class="wide mast-inner">
+  <a class="brand" href="{rel or './'}"><img src="{rel}static/favicon.svg" width="34" height="34" alt="">Việt hóa <span>/ Thư viện game</span></a>
+  <label class="theme" hidden><span aria-hidden="true">◐</span><select aria-label="Giao diện">
+    <option value="auto">Hệ thống</option><option value="light">Sáng</option><option value="dark">Tối</option>
+  </select></label>
+</div></header>
 {body}
 <script src="{rel}static/app.js" defer></script>
 </body>
@@ -206,7 +220,7 @@ def game_page(site: dict, game: dict) -> str:
     donate_btn = ('<button type="button" class="cafe" data-open="moi-cafe">'
                   '☕ Mời mình một ly cà phê</button>') if donate else ""
 
-    body = f"""<header class="hero"><div class="wrap">
+    body = f"""<header class="hero game-hero"><div class="wide game-heading"><div>
   <p class="kicker">{escape(site['tagline'])} · {escape(game['platform'])}</p>
   <h1>{escape(game['name'])} Việt Hóa</h1>
   <p class="sub">Bản dịch tiếng Việt cho {escape(game['name'])} trên PC — Windows và Steam Deck.</p>
@@ -217,7 +231,7 @@ def game_page(site: dict, game: dict) -> str:
     <a class="btn" href="#cai-dat">Hướng dẫn cài</a>
     <a class="btn" href="{escape(game.get('steam_url', '#'))}" rel="noopener">Trang Steam</a>
   </div>
-</div></header>
+</div><div class="art hero-art">{cover(game, '../')}</div></div></header>
 
 <nav class="toc"><div class="wrap">
   <a href="#gioi-thieu">Giới thiệu</a>
@@ -229,7 +243,7 @@ def game_page(site: dict, game: dict) -> str:
   <a href="#thay-doi">Thay đổi</a>
 </div></nav>
 
-<main class="wrap">
+<main class="wrap guide">
 <section id="gioi-thieu">
   <h2>Giới thiệu</h2>
   {intro}
@@ -280,7 +294,7 @@ Vui lòng mua game để ủng hộ nhà phát triển.</p>
 
 <footer><div class="wrap">
   <p><strong>{escape(game['name'])} Việt Hóa</strong> · {escape(game['version'])} · Việt hóa bởi {escape(site['author'])}</p>
-  <p><a href="{site['base_url'].rstrip('/')}/">Tất cả bản Việt hóa</a> · <a href="{escape(game.get('steam_url', '#'))}" rel="noopener">Steam</a></p>
+  <p><a href="../">Tất cả bản Việt hóa</a> · <a href="{escape(game.get('steam_url', '#'))}" rel="noopener">Steam</a></p>
   <p style="margin-top:14px">{donate_btn}</p>
 </div></footer>
 {donate}
@@ -294,22 +308,26 @@ def hub_page(site: dict, games: list[dict]) -> str:
     cards = []
     for g in sorted(games, key=lambda x: x["updated"], reverse=True):
         cards.append(
-            f'<a href="{escape(g["slug"])}/"><h3>{escape(g["name"])}'
-            f'<span class="badge">{escape(g["platform"])}</span></h3>'
-            f'<p>{escape(g["summary"][:150])}…</p></a>'
+            f'<a class="game-link" href="{escape(g["slug"])}/">'
+            f'<div class="art">{cover(g)}<span class="platform">{escape(g["platform"])}</span></div>'
+            f'<div class="game-copy"><small class="status">{escape(g["status"])}</small>'
+            f'<h3>{escape(g["name"])}</h3><p>{escape(g.get("blurb") or g["summary"])}</p>'
+            f'<div class="card-end"><small>{escape(g["version"])}</small>'
+            f'<strong>Xem bản dịch <span aria-hidden="true">→</span></strong></div></div></a>'
         )
-    body = f"""<header class="hero"><div class="wrap">
+    body = f"""<main class="wide library">
+<header class="library-head">
   <p class="kicker">{escape(site['tagline'])}</p>
-  <h1>Các bản Việt hóa</h1>
-  <p class="sub">Bản dịch tiếng Việt cho game PC, cài tự động trên Windows và Steam Deck.</p>
-</div></header>
-<main class="wrap">
-<section>
-  <h2>Danh sách</h2>
+  <h1>Thư viện <em>Việt hóa.</em></h1>
+  <p class="sub">Bản dịch tiếng Việt miễn phí cho game PC.<br>Cài tự động trên Windows và Steam Deck.</p>
+</header>
+<section class="shelf">
+  <h2>Bộ sưu tập <span>{len(cards):02}</span></h2>
   <div class="games">{''.join(cards)}</div>
 </section>
 </main>
-<footer><div class="wrap"><p>Việt hóa bởi {escape(site['author'])}. Bản dịch miễn phí; vui lòng mua game để ủng hộ nhà phát triển.</p></div></footer>
+<footer><div class="wide foot-inner"><div><strong>Việt hóa bởi {escape(site['author'])}</strong>
+<p>Vui lòng mua game để ủng hộ nhà phát triển.</p></div><a href="#top">Về đầu trang ↑</a></div></footer>
 """
     return shell(site, title="Việt Hóa Game PC — Patch tiếng Việt",
                  description="Danh sách bản Việt hóa game PC của " + site["author"]

@@ -2,6 +2,8 @@
   "slug": "temtem",
   "name": "Temtem",
   "platform": "PC",
+  "cover": "static/temtem/cover.webp",
+  "blurb": "Khám phá quần đảo cùng những người bạn Temtem. Hội thoại, nhiệm vụ và mô tả chiêu thức nay đã có tiếng Việt.",
   "status": "Hoàn thành",
   "version": "v1.0.2",
   "updated": "2026-11-24",

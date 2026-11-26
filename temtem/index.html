@@ -14,7 +14,8 @@
 <meta property="og:url" content="https://hhhai0304.github.io/viethoa/temtem/">
 <meta property="og:image" content="https://hhhai0304.github.io/viethoa/static/og-default.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#0f6f66">
+<meta name="color-scheme" content="light dark">
+<script>try { const t = localStorage.getItem('viethoa-theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch {}</script>
 <meta name="application-name" content="Việt Hóa">
 <link rel="icon" href="../static/favicon.ico" sizes="any">
 <link rel="icon" type="image/svg+xml" href="../static/favicon.svg">
@@ -26,8 +27,14 @@
 <link rel="stylesheet" href="../static/style.css">
 <script type="application/ld+json">[{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Temtem Việt Hóa", "operatingSystem": "Windows, Linux", "applicationCategory": "GameApplication", "softwareVersion": "v1.0.2", "inLanguage": "vi", "url": "https://hhhai0304.github.io/viethoa/temtem/", "description": "Bản Việt hóa tiếng Việt cho Temtem trên PC — chạy tốt trên Windows và Steam Deck (Proton). Toàn bộ hội thoại, UI, mô tả chiêu thức và vật phẩm đã được dịch; tên Temtem, tên chiêu, tên vật phẩm và địa danh giữ nguyên tiếng Anh để khớp với wiki và cộng đồng.", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "VND"}}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Cài bản Việt hóa có bị ban không?", "acceptedAnswer": {"@type": "Answer", "text": "Bản dịch chỉ thay dữ liệu văn bản phía client (hai file .assets), không đụng vào logic game, không can thiệp vào kết nối hay giao dịch. Temtem không dùng anti-cheat kernel. Tuy vậy đây là game online và mọi thay đổi file đều là tự chịu rủi ro — nếu bạn lo, hãy thử bằng một tài khoản phụ trước."}}, {"@type": "Question", "name": "Game cập nhật thì bản Việt hóa còn dùng được không?", "acceptedAnswer": {"@type": "Answer", "text": "Nếu bản cập nhật có sửa hai file dữ liệu, Steam sẽ ghi đè và bản dịch mất — khi đó installer sẽ báo đúng phiên bản và dừng lại thay vì làm hỏng game. Bạn xác minh lại để chơi bản gốc, mình sẽ phát hành bản Việt hóa khớp phiên bản mới."}}, {"@type": "Question", "name": "Có cần cài BepInEx hay plugin gì không?", "acceptedAnswer": {"@type": "Answer", "text": "Không. Temtem dùng I2 Localization với toàn bộ chuỗi nằm trong file assets, nên chỉ cần thay file — không DLL, không launch option, không ảnh hưởng tới Steam Deck."}}, {"@type": "Question", "name": "Vì sao tên Temtem, tên chiêu và vật phẩm vẫn là tiếng Anh?", "acceptedAnswer": {"@type": "Answer", "text": "Đó là chủ ý. Tên riêng giữ nguyên để khớp với wiki, video hướng dẫn và cộng đồng quốc tế; phần mô tả, hội thoại và UI thì dịch toàn bộ."}}, {"@type": "Question", "name": "Bản Việt hóa có miễn phí không?", "acceptedAnswer": {"@type": "Answer", "text": "Miễn phí và sẽ luôn miễn phí. Nếu bạn muốn ủng hộ, có nút mời mình một ly cà phê — nhưng chơi hết game và báo lỗi giúp đã là quý rồi."}}, {"@type": "Question", "name": "Cài xong mà game vẫn tiếng Anh?", "acceptedAnswer": {"@type": "Answer", "text": "Vào Cài đặt → Ngôn ngữ và chọn “Tiếng Anh” — bản Việt hóa nằm ở đúng khe đó, nên tên hiển thị vẫn là Tiếng Anh nhưng nội dung là tiếng Việt. Nếu vẫn tiếng Anh, chạy lại installer: nó sẽ báo file đã vá hay chưa."}}]}]</script>
 </head>
-<body>
-<header class="hero"><div class="wrap">
+<body id="top">
+<header class="mast"><div class="wide mast-inner">
+  <a class="brand" href="../"><img src="../static/favicon.svg" width="34" height="34" alt="">Việt hóa <span>/ Thư viện game</span></a>
+  <label class="theme" hidden><span aria-hidden="true">◐</span><select aria-label="Giao diện">
+    <option value="auto">Hệ thống</option><option value="light">Sáng</option><option value="dark">Tối</option>
+  </select></label>
+</div></header>
+<header class="hero game-hero"><div class="wide game-heading"><div>
   <p class="kicker">Bản Việt hóa của người hâm mộ · PC</p>
   <h1>Temtem Việt Hóa</h1>
   <p class="sub">Bản dịch tiếng Việt cho Temtem trên PC — Windows và Steam Deck.</p>
@@ -38,7 +45,7 @@
     <a class="btn" href="#cai-dat">Hướng dẫn cài</a>
     <a class="btn" href="https://store.steampowered.com/app/745920/Temtem/" rel="noopener">Trang Steam</a>
   </div>
-</div></header>
+</div><div class="art hero-art"><img class="keyart" src="../static/temtem/cover.webp" alt=""></div></div></header>
 
 <nav class="toc"><div class="wrap">
   <a href="#gioi-thieu">Giới thiệu</a>
@@ -50,7 +57,7 @@
   <a href="#thay-doi">Thay đổi</a>
 </div></nav>
 
-<main class="wrap">
+<main class="wrap guide">
 <section id="gioi-thieu">
   <h2>Giới thiệu</h2>
   <p>Temtem là game bắt và nuôi thú dạng MMO của Crema, ra mắt trên Steam năm 2022. Game chưa có tiếng Việt chính thức — đây là bản dịch độc lập, làm từ đầu, không dựa trên bản dịch nào khác.</p><p>Khác với phần lớn bản Việt hóa PC, Temtem không cần BepInEx, không cần DLL, không cần thêm launch option. Bản dịch nằm gọn trong hai file dữ liệu của game, nên cài xong là chạy — kể cả trên Steam Deck.</p>
@@ -101,7 +108,7 @@ Vui lòng mua game để ủng hộ nhà phát triển.</p>
 
 <footer><div class="wrap">
   <p><strong>Temtem Việt Hóa</strong> · v1.0.2 · Việt hóa bởi Hải</p>
-  <p><a href="https://hhhai0304.github.io/viethoa/">Tất cả bản Việt hóa</a> · <a href="https://store.steampowered.com/app/745920/Temtem/" rel="noopener">Steam</a></p>
+  <p><a href="../">Tất cả bản Việt hóa</a> · <a href="https://store.steampowered.com/app/745920/Temtem/" rel="noopener">Steam</a></p>
   <p style="margin-top:14px"><button type="button" class="cafe" data-open="moi-cafe">☕ Mời mình một ly cà phê</button></p>
 </div></footer>
 
@@ -114,10 +121,11 @@ Vui lòng mua game để ủng hộ nhà phát triển.</p>
     <img class="qr" src="https://img.vietqr.io/image/TCB-5678567820-compact2.png?addInfo=Viet+Hoa+Temtem&amp;accountName=HO+HOANG+HAI" alt="Mã QR chuyển khoản" loading="lazy">
     <dl>
       <dt>Ngân hàng</dt><dd>Techcombank</dd>
-      <dt>Số tài khoản</dt><dd><code>5678567820</code><button type="button" class="copy" data-copy="5678567820">Chép</button></dd>
+      <dt>Số tài khoản</dt><dd><code>5678567820</code><button type="button" class="copy" aria-label="Chép số tài khoản" data-copy="5678567820">Chép</button></dd>
       <dt>Chủ tài khoản</dt><dd>HO HOANG HAI</dd>
-      <dt>Nội dung</dt><dd>Viet Hoa Temtem<button type="button" class="copy" data-copy="Viet Hoa Temtem">Chép</button></dd>
+      <dt>Nội dung</dt><dd>Viet Hoa Temtem<button type="button" class="copy" aria-label="Chép nội dung chuyển khoản" data-copy="Viet Hoa Temtem">Chép</button></dd>
     </dl>
+    <p class="copy-status" role="status"></p>
   </div>
 </dialog>
 

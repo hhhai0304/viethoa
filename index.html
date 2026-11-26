@@ -14,7 +14,8 @@
 <meta property="og:url" content="https://hhhai0304.github.io/viethoa/">
 <meta property="og:image" content="https://hhhai0304.github.io/viethoa/static/og-default.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#0f6f66">
+<meta name="color-scheme" content="light dark">
+<script>try { const t = localStorage.getItem('viethoa-theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch {}</script>
 <meta name="application-name" content="Việt Hóa">
 <link rel="icon" href="static/favicon.ico" sizes="any">
 <link rel="icon" type="image/svg+xml" href="static/favicon.svg">
@@ -26,19 +27,26 @@
 <link rel="stylesheet" href="static/style.css">
 
 </head>
-<body>
-<header class="hero"><div class="wrap">
-  <p class="kicker">Bản Việt hóa của người hâm mộ</p>
-  <h1>Các bản Việt hóa</h1>
-  <p class="sub">Bản dịch tiếng Việt cho game PC, cài tự động trên Windows và Steam Deck.</p>
+<body id="top">
+<header class="mast"><div class="wide mast-inner">
+  <a class="brand" href="./"><img src="static/favicon.svg" width="34" height="34" alt="">Việt hóa <span>/ Thư viện game</span></a>
+  <label class="theme" hidden><span aria-hidden="true">◐</span><select aria-label="Giao diện">
+    <option value="auto">Hệ thống</option><option value="light">Sáng</option><option value="dark">Tối</option>
+  </select></label>
 </div></header>
-<main class="wrap">
-<section>
-  <h2>Danh sách</h2>
-  <div class="games"><a href="temtem/"><h3>Temtem<span class="badge">PC</span></h3><p>Bản Việt hóa tiếng Việt cho Temtem trên PC — chạy tốt trên Windows và Steam Deck (Proton). Toàn bộ hội thoại, UI, mô tả chiêu thức và vật phẩm đã được…</p></a></div>
+<main class="wide library">
+<header class="library-head">
+  <p class="kicker">Bản Việt hóa của người hâm mộ</p>
+  <h1>Thư viện <em>Việt hóa.</em></h1>
+  <p class="sub">Bản dịch tiếng Việt miễn phí cho game PC.<br>Cài tự động trên Windows và Steam Deck.</p>
+</header>
+<section class="shelf">
+  <h2>Bộ sưu tập <span>01</span></h2>
+  <div class="games"><a class="game-link" href="temtem/"><div class="art"><img class="keyart" src="static/temtem/cover.webp" alt=""><span class="platform">PC</span></div><div class="game-copy"><small class="status">Hoàn thành</small><h3>Temtem</h3><p>Khám phá quần đảo cùng những người bạn Temtem. Hội thoại, nhiệm vụ và mô tả chiêu thức nay đã có tiếng Việt.</p><div class="card-end"><small>v1.0.2</small><strong>Xem bản dịch <span aria-hidden="true">→</span></strong></div></div></a></div>
 </section>
 </main>
-<footer><div class="wrap"><p>Việt hóa bởi Hải. Bản dịch miễn phí; vui lòng mua game để ủng hộ nhà phát triển.</p></div></footer>
+<footer><div class="wide foot-inner"><div><strong>Việt hóa bởi Hải</strong>
+<p>Vui lòng mua game để ủng hộ nhà phát triển.</p></div><a href="#top">Về đầu trang ↑</a></div></footer>
 
 <script src="static/app.js" defer></script>
 </body>

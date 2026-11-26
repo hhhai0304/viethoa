@@ -94,6 +94,8 @@ git add -A && git commit -m "add <Game> việt hóa page"
 description), and keep the H1 as `<Game> Việt Hóa` — that is the phrase people
 search.
 
+Set `cover` to a site-root-relative file path without a leading slash, and `blurb` to a short catalogue description. A game without a cover displays its initial instead. Temtem's cover is a local WebP rendition of the [official Steam library artwork](https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/745920/library_hero.jpg); game artwork belongs to its respective owners.
+
 Screenshots: drop files in `static/<slug>/` and list them in the game JSON:
 
 ```json

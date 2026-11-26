@@ -1,6 +1,14 @@
-/* Tabs, donate dialog, copy buttons. No dependencies. */
+/* Shared page interactions. No dependencies. */
 (function () {
   "use strict";
+
+  const theme = document.querySelector('.theme select');
+  theme.value = document.documentElement.dataset.theme || 'auto';
+  theme.parentElement.hidden = false;
+  theme.addEventListener('change', () => {
+    document.documentElement.dataset.theme = theme.value;
+    try { localStorage.setItem('viethoa-theme', theme.value); } catch { /* Storage is optional. */ }
+  });
 
   document.querySelectorAll(".tabs").forEach(function (box) {
     var buttons = Array.prototype.slice.call(box.querySelectorAll('[role="tab"]'));
@@ -25,12 +33,14 @@
     if (close) close.addEventListener("click", function () { dlg.close(); });
     dlg.addEventListener("click", function (e) { if (e.target === dlg) dlg.close(); });
     dlg.querySelectorAll("button.copy").forEach(function (b) {
-      b.addEventListener("click", function () {
-        navigator.clipboard.writeText(b.dataset.copy).then(function () {
-          var old = b.textContent;
-          b.textContent = "Đã chép";
-          setTimeout(function () { b.textContent = old; }, 1500);
-        });
+      b.addEventListener("click", async function () {
+        const status = dlg.querySelector('.copy-status');
+        try {
+          await navigator.clipboard.writeText(b.dataset.copy);
+          status.textContent = b.getAttribute('aria-label').replace('Chép', 'Đã chép') + '.';
+        } catch {
+          status.textContent = 'Không thể chép tự động. Hãy chọn và sao chép dòng bên trên.';
+        }
       });
     });
     if (location.hash === "#moi-cafe") dlg.showModal();
