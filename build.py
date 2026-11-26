@@ -9,6 +9,7 @@ one JSON file under content/games/ — no template edits.
 
 from __future__ import annotations
 
+import hashlib
 import json
 from html import escape
 from pathlib import Path
@@ -23,6 +24,11 @@ FONTS = (
     '<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600'
     "&family=Newsreader:opsz,wght@6..72,600;6..72,700&display=swap\" rel=\"stylesheet\">"
 )
+
+
+def asset_url(name: str) -> str:
+    digest = hashlib.sha256((STATIC / name).read_bytes()).hexdigest()[:12]
+    return f"static/{name}?v={digest}"
 
 
 def load(path: Path):
@@ -178,7 +184,8 @@ def shell(site: dict, *, title: str, description: str, path: str, body: str,
 <link rel="apple-touch-icon" href="{rel}static/apple-touch-icon.png">
 {('<meta name="google-site-verification" content="' + site['google_verification'] + '">') if site.get('google_verification') else ''}
 {FONTS}
-<link rel="stylesheet" href="{rel}static/style.css">
+<style>.keyart {{ max-width: 100%; }}</style>
+<link rel="stylesheet" href="{rel}{asset_url('style.css')}">
 {extra_head}
 </head>
 <body id="top">
@@ -189,7 +196,7 @@ def shell(site: dict, *, title: str, description: str, path: str, body: str,
   </select></label>
 </div></header>
 {body}
-<script src="{rel}static/app.js" defer></script>
+<script src="{rel}{asset_url('app.js')}" defer></script>
 </body>
 </html>
 """
